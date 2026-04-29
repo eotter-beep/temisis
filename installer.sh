@@ -31,6 +31,13 @@ else
     echo "✓ LSP Plugins already installed, skipping..."
 fi
 
+echo "Installing Audacity..."
+if ! dpkg -l | grep -q audacity; then
+    sudo apt install audacity
+else
+    echo "✓ Audacity already installed, skipping..."
+fi
+
 echo "Installing Hydrogen drum machine..."
 if ! dpkg -l | grep -q hydrogen; then
     sudo apt install hydrogen
@@ -43,6 +50,7 @@ dpkg -l | grep -q surge-xt && echo "✓ Surge XT found" || echo "✗ Surge XT mi
 dpkg -l | grep -q bitklavier && echo "✓ BitKlavier found" || echo "✗ BitKlavier missing - please reinstall manually"
 dpkg -l | grep -q lsp-plugins && echo "✓ LSP Plugins found" || echo "✗ LSP Plugins missing - please reinstall manually"
 dpkg -l | grep -q hydrogen && echo "✓ Hydrogen found" || echo "✗ Hydrogen missing - please reinstall manually"
+dpkg -l | grep -q hydrogen && echo "✓ Audacity found" || echo "✗ Audacity missing - please reinstall manually"
 
 echo "Building Temisis..."
 cd Projects/LinuxMakefile
